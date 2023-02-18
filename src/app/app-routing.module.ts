@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostListComponent } from './social-media/components/post-list/post-list.component';
-import { PostsResolver } from './social-media/resolvers/posts.resolver';
 
 const routes: Routes = [
   {
@@ -9,6 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./social-media/social-media.module').then(
         (m) => m.SocialMediaModule
+      ),
+  },
+  {
+    path: 'complex-form',
+    loadChildren: () =>
+      import('./complex-form/complex-form.module').then(
+        (m) => m.ComplexFormModule
       ),
   },
   { path: '**', redirectTo: 'social-media' },
