@@ -42,6 +42,9 @@
         <mat-error>{{ getFormControlErrorText(confirmEmailCtrl) }}</mat-error>
       </mat-form-field>
     </div>
+    <small class="error-text" *ngIf="showEmailError$ | async"
+      >Les deux adresses ne correspondent pas</small
+    >
   </mat-card>
   <mat-card class="form-card" *ngIf="showPhoneCtrl$ | async">
     <mat-card-subtitle>Telephone</mat-card-subtitle>
@@ -70,6 +73,9 @@
         <mat-error>Ce champ est requis</mat-error>
       </mat-form-field>
     </div>
+    <small class="error-text" *ngIf="showPasswordError$ | async"
+      >Les deux mot de passe ne correspondent pas</small
+    >
   </mat-card>
   <mat-card-actions *ngIf="mainForm.valid">
     <button
