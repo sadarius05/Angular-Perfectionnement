@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CandidatesServices } from '../../services/candidates.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -7,7 +9,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CandidateListComponent implements OnInit {
-  constructor() {}
+  loading$!: Observable<boolean>;
+  constructor(private candidatesServices: CandidatesServices) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loading$ = this.candidatesServices.loading$;
+  }
 }

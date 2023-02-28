@@ -17,4 +17,8 @@ export class CandidatesServices {
   get candidate$(): Observable<Candidate[]> {
     return this._candidate$.asObservable();
   }
+
+  private setLoadingStatus(loading: boolean) {
+    this._loading$.next(loading);
+  }
 }
